@@ -14,7 +14,7 @@ public class CCuenta {
     }
 
     /**
-     * @param nombre the nombre to set
+     * @param nombre define el nombre
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -68,6 +68,7 @@ public class CCuenta {
     private double tipoInterés;
 
     
+    //Constructor de la clase cuenta
     public CCuenta() {
     }
 
@@ -77,6 +78,7 @@ public class CCuenta {
      * @param sal
      * @param tipo 
      */
+    
     public CCuenta(String nom, String cue, double sal, double tipo) {
         nombre = nom;
         cuenta = cue;
