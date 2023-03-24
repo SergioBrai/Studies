@@ -7,49 +7,49 @@ package cuentas;
 public class CCuenta {
 
     /**
-     * @return the nombre
+     * @return the nombre devuelve  el nombre de la cuenta
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @param nombre define el nombre
+     * @param nombre define el nombre de la cuenta
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * @return the cuenta
+     * @return the cuenta devuelve los datos de la cuenta actual
      */
     public String getCuenta() {
         return cuenta;
     }
 
     /**
-     * @param cuenta the cuenta to set
+     * @param cuenta sirve para sobreescribir los datos de la cuenta actual
      */
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
     /**
-     * @return the saldo
+     * @return the saldo devuelve el saldo actual de la cuenta
      */
     public double getSaldo() {
         return saldo;
     }
 
     /**
-     * @param saldo the saldo to set
+     * @param saldo sobreescribe el valor anterior del saldo por el actual
      */
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
     /**
-     * @return the tipoInterés
+     * @return the tipoInterés devuelve el tipo de interés generado
      */
     public double getTipoInterés() {
         return tipoInterés;
@@ -68,15 +68,18 @@ public class CCuenta {
     private double tipoInterés;
 
     
-    //Constructor de la clase cuenta
+    /**
+     * Constructor de la clase CCuenta
+     */
     public CCuenta() {
     }
 
     /**
-     * @param nom
-     * @param cue
-     * @param sal
-     * @param tipo 
+     * ´La clase CCuenta tiene los siguientes parámetros
+     * @param nom nombre de la cuenta
+     * @param cue cuenta con la que estamos trabajando
+     * @param sal saldo de la cuenta
+     * @param tipo tipo de interés de la cuenta
      */
     
     public CCuenta(String nom, String cue, double sal, double tipo) {
@@ -86,7 +89,7 @@ public class CCuenta {
     }
     
     /**
-     * 
+     * Define el saldo actual utilizando el método getSaldo()
      * @return getSaldo();
      */
     public double estado() {
@@ -94,6 +97,7 @@ public class CCuenta {
     }
 
     /**
+     * Condicional que comprueba si la cantidad a ingresar es válida
      * 
      * @param cantidad
      * @throws Exception 
@@ -103,23 +107,33 @@ public class CCuenta {
         if (cantidad < 0) {
             throw new Exception("No se puede ingresar una cantidad negativa");
         }
+        /**
+         * Establece el saldo actual tras el ingreso del dinero
+         */
         setSaldo(getSaldo() + cantidad);
     }
 
     /**
-     * 
+     * Comprueba si el valor a retirar es positivo y menor al total actual de la cuenta
      * @param cantidad
      * @throws Exception 
      */
     public void retirar(double cantidad) throws Exception {
-        //Devuelve error su la cantidad a retirar es menor a 0
+        /**
+         * Devuelve error su la cantidad a retirar es menor a 0
+         */
         if (cantidad <= 0) {
             throw new Exception("No se puede retirar una cantidad negativa");
         }
-        //Si el saldo es menos que la cantidad a retirar devuelve el error correspondiente
+        /**
+         * Si el saldo es menor que la cantidad a retirar devuelve el error correspondiente
+          */
         if (estado() < cantidad) {
             throw new Exception("No se hay suficiente saldo");
         }
+        /**
+         * Establece el saldo actual tras la retirada del dinero
+         */
         setSaldo(getSaldo() - cantidad);
     }
 }
